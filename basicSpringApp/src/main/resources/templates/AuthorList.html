@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Author List</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Author List</h1>
+
+<a href="/authors/create"><button type="button" class="btn btn-primary">Create new author</button></a>
+<a href="/books/create"><button type="button" class="btn btn-primary">Create new book</button></a>
+
+<ul>
+    <li th:each="author : ${authors}">
+        <span th:text="${author.name}"></span>
+        <a th:href="@{/authors/update/{id}(id=${author.id})}">Update</a>
+        <a th:href="@{/authors/delete/{id}(id=${author.id})}">Delete</a>
+    </li>
+</ul>
+
+</body>
+</html>
