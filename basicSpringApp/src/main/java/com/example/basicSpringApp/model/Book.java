@@ -16,7 +16,7 @@ public class Book {
     @Size(min = 2, message = "Title should be longer than 2 characters")
     private String title;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
     private Author author;
 

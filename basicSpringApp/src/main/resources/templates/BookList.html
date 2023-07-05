@@ -15,7 +15,6 @@
 <ul>
     <li th:each="book : ${books}">
         <span th:text="${book.title}"></span>
-        <span th:text="${book.author.name}"></span>
         <a th:href="@{/books/update/{id}(id=${book.id})}">Update</a>
         <a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a>
     </li>

@@ -33,7 +33,7 @@ public class AuthorController {
     }
 
     @PostMapping("/create")
-    public String createAuthor(@ModelAttribute("author") @Valid Author newAuthor, BindingResult result) {
+    public String createAuthor(@ModelAttribute("author") @Valid Author newAuthor, BindingResult result) {       // Handle Validation
         authorRepository.save(newAuthor);
         if (result.hasErrors()) {
             return "Create_Author";
@@ -60,7 +60,7 @@ public class AuthorController {
 
     // Update
     @GetMapping ("/update/{id}")
-    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+    public String updateAuthorForm(@PathVariable("id") Long id, Model model) {
         Author author = authorRepository.findById(id).orElse(null);
         if (author == null) {
             return "Error";
@@ -70,7 +70,7 @@ public class AuthorController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateAuthor(@PathVariable Long id, @Valid Author author, BindingResult result) {
+    public String updateAuthor(@PathVariable Long id, @Valid Author author, BindingResult result) {     // Handle Validation
         if (result.hasErrors()) {
             return "Update_Author";
         }
